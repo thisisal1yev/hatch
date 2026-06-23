@@ -1,44 +1,70 @@
-import { ButtonLink, Container, Reveal } from "@/shared/ui";
-import { SearchBar } from "@/features/job-search";
-import { JobCard, type Job } from "@/entities/job";
+import { ButtonLink, Container, SampleNote, StatCounter } from "@/shared/ui";
+import { RoleCardCarousel } from "@/features/role-spotlight";
+import type { Job } from "@/entities/job";
+import type { EcosystemStats } from "@/entities/market";
 
-export function Hero({ previewJob }: { previewJob?: Job }) {
+function Stat({
+  value,
+  label,
+  format,
+}: {
+  value: number;
+  label: string;
+  format?: (n: number) => string;
+}) {
   return (
-    <Container className="grid items-center gap-12 pt-12 pb-16 sm:pt-16 lg:grid-cols-2 lg:gap-16 lg:pt-20 lg:pb-24">
-      <div>
-        <h1 className="text-foreground text-4xl font-semibold tracking-tight text-balance md:text-5xl lg:text-6xl">
-          Oʻzbekistondagi IT-ish: tekshirilgan va shaffof
-        </h1>
-        <p className="text-muted mt-5 max-w-lg text-lg text-pretty">
-          Har bir vakansiya moderatsiyadan oʻtadi. Maosh darhol soʻm va dollarda koʻrsatiladi.
-        </p>
-
-        <div className="mt-8 max-w-lg">
-          <SearchBar
-            placeholder="Koʻnikma yoki lavozim (masalan, React, Backend)"
-            submitLabel="Qidirish"
-          />
-        </div>
-
-        <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href="/jobs" size="lg">
-            Ish topish
-          </ButtonLink>
-          <ButtonLink href="/for-employers" variant="secondary" size="lg">
-            Vakansiya joylash
-          </ButtonLink>
-        </div>
+    <div>
+      <div className="text-2xl font-semibold text-white sm:text-3xl">
+        <StatCounter value={value} format={format} />
       </div>
+      <div className="mt-1 text-xs leading-snug text-white/55">{label}</div>
+    </div>
+  );
+}
 
-      {previewJob && (
-        <Reveal delay={0.1} className="relative hidden lg:block">
-          <div
-            aria-hidden
-            className="border-border bg-surface-2 absolute inset-x-8 top-8 -z-10 h-full rounded-2xl border"
-          />
-          <JobCard job={previewJob} className="shadow-[0_24px_70px_-24px_rgba(2,44,40,0.28)]" />
-        </Reveal>
-      )}
-    </Container>
+export function Hero({ stats, spotlight }: { stats: EcosystemStats; spotlight: Job[] }) {
+  return (
+    <section className="bg-band relative overflow-hidden text-white">
+      <div className="bg-grain pointer-events-none absolute inset-0" aria-hidden />
+      <Container className="relative grid items-center gap-12 pt-16 pb-20 lg:grid-cols-2 lg:gap-16 lg:pt-24 lg:pb-28">
+        <div>
+          <h1 className="text-4xl font-semibold tracking-tight text-balance md:text-5xl lg:text-6xl">
+            Oʻzbekiston startupiga qoʻshil.
+          </h1>
+          <p className="mt-5 max-w-lg text-lg text-pretty text-white/70">
+            Maosh va equity — ochiq. Tasdiqlangan startuplar, toʻgʻridan-toʻgʻri asoschilar bilan.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <ButtonLink href="/jobs" size="lg">
+              Ish topish
+            </ButtonLink>
+            <ButtonLink
+              href="/for-employers"
+              size="lg"
+              className="border border-white/25 bg-white/5 text-white hover:bg-white/10"
+            >
+              Startup sifatida eʼlon ber
+            </ButtonLink>
+          </div>
+
+          <div className="mt-10 grid max-w-lg grid-cols-3 gap-4">
+            <Stat value={stats.hiringStartups} label="Ishga olayotgan startuplar" />
+            <Stat value={stats.openRoles} label="Ochiq oʻrinlar" />
+            <Stat
+              value={Math.round(stats.totalFundingUSD / 1_000_000)}
+              label="Jami jalb qilingan"
+              format={(n) => `$${Math.round(n)}M+`}
+            />
+          </div>
+
+          <SampleNote className="mt-4 text-white/45" />
+        </div>
+
+        <div className="lg:pl-4">
+          <RoleCardCarousel roles={spotlight} />
+        </div>
+      </Container>
+    </section>
   );
 }
