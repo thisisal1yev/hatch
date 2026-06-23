@@ -20,19 +20,19 @@ export function JobCard({ job, className }: JobCardProps) {
     <Link
       href={`/jobs/${job.slug}`}
       className={cn(
-        "group border-border bg-surface flex flex-col gap-4 rounded-2xl border p-5",
-        "hover:border-accent/50 transition duration-200 hover:-translate-y-0.5",
-        "focus-visible:ring-accent focus-visible:ring-2 focus-visible:outline-none",
+        "group border-line bg-surface flex flex-col gap-4 rounded-2xl border p-5",
+        "hover:border-brand/40 transition duration-200 hover:-translate-y-0.5",
+        "focus-visible:ring-brand focus-visible:ring-2 focus-visible:outline-none",
         className,
       )}
     >
       <div className="flex items-center gap-3">
-        <span className="bg-accent-soft text-accent-soft-foreground flex size-10 shrink-0 items-center justify-center rounded-xl font-semibold">
+        <span className="bg-brand-soft text-brand-soft-foreground flex size-10 shrink-0 items-center justify-center rounded-xl font-semibold">
           {monogram}
         </span>
         <div className="min-w-0">
           <div className="flex items-center gap-1.5">
-            <span className="text-foreground truncate text-sm font-medium">{job.company.name}</span>
+            <span className="text-ink truncate text-sm font-medium">{job.company.name}</span>
             {job.company.verified && (
               <SealCheck
                 weight="fill"
@@ -41,7 +41,7 @@ export function JobCard({ job, className }: JobCardProps) {
               />
             )}
             {stage && (
-              <span className="border-border text-muted ml-1 rounded-full border px-1.5 py-0.5 text-[11px] leading-none font-medium">
+              <span className="border-line text-muted ml-1 rounded-full border px-1.5 py-0.5 text-[11px] leading-none font-medium">
                 {stage}
               </span>
             )}
@@ -50,7 +50,7 @@ export function JobCard({ job, className }: JobCardProps) {
         </div>
       </div>
 
-      <h3 className="text-foreground text-lg font-semibold tracking-tight">{job.title}</h3>
+      <h3 className="text-ink text-lg font-semibold tracking-tight">{job.title}</h3>
 
       <div className="flex flex-wrap items-center gap-2 text-xs">
         <span className="bg-surface-2 text-muted inline-flex items-center gap-1 rounded-full px-2.5 py-1">
@@ -64,20 +64,17 @@ export function JobCard({ job, className }: JobCardProps) {
 
       <div className="flex flex-wrap gap-1.5">
         {job.skills.map((skill) => (
-          <span
-            key={skill}
-            className="border-border text-muted rounded-md border px-2 py-0.5 text-xs"
-          >
+          <span key={skill} className="border-line text-muted rounded-md border px-2 py-0.5 text-xs">
             {skill}
           </span>
         ))}
       </div>
 
-      <div className="border-border mt-auto border-t pt-4">
-        <div className="text-foreground font-semibold">{salary.primary}</div>
-        {salary.secondary && <div className="text-muted text-xs">{salary.secondary}</div>}
+      <div className="border-line mt-auto border-t pt-4">
+        <div className="text-ink font-mono font-semibold">{salary.primary}</div>
+        {salary.secondary && <div className="text-muted font-mono text-xs">{salary.secondary}</div>}
         {equity && (
-          <span className="text-accent-soft-foreground bg-accent-soft mt-2 inline-block w-fit rounded-full px-2 py-0.5 text-xs font-medium">
+          <span className="bg-accent-soft text-accent-soft-foreground mt-2 inline-block w-fit rounded-full px-2 py-0.5 text-xs font-medium">
             {equity} equity
           </span>
         )}

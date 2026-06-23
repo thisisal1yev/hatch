@@ -28,7 +28,7 @@ export function RoleCardCarousel({ roles }: { roles: Job[] }) {
 
   return (
     <div className="relative" aria-roledescription="carousel" aria-label="Startup oʻrinlari">
-      <div className="border-border/60 bg-surface/95 relative min-h-[260px] overflow-hidden rounded-3xl border p-6 shadow-[0_30px_80px_-30px_rgba(2,44,40,0.45)] backdrop-blur sm:p-7">
+      <div className="border-line/50 bg-surface/95 relative min-h-[260px] overflow-hidden rounded-3xl border p-6 shadow-[0_30px_80px_-30px_rgba(40,20,8,0.4)] backdrop-blur sm:p-7">
         <AnimatePresence mode="wait">
           <motion.div
             key={job.id}
@@ -38,14 +38,12 @@ export function RoleCardCarousel({ roles }: { roles: Job[] }) {
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="flex items-center gap-2">
-              <span className="bg-accent-soft text-accent-soft-foreground flex size-10 shrink-0 items-center justify-center rounded-xl font-semibold">
+              <span className="bg-brand-soft text-brand-soft-foreground flex size-10 shrink-0 items-center justify-center rounded-xl font-semibold">
                 {job.company.name.charAt(0).toUpperCase()}
               </span>
               <div className="min-w-0">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-foreground truncate text-sm font-medium">
-                    {job.company.name}
-                  </span>
+                  <span className="text-ink truncate text-sm font-medium">{job.company.name}</span>
                   {job.company.verified && (
                     <SealCheck
                       weight="fill"
@@ -58,17 +56,15 @@ export function RoleCardCarousel({ roles }: { roles: Job[] }) {
               </div>
             </div>
 
-            <h3 className="text-foreground mt-4 text-xl font-semibold tracking-tight">
-              {job.title}
-            </h3>
+            <h3 className="text-ink mt-4 text-xl font-semibold tracking-tight">{job.title}</h3>
 
             <div className="mt-4 space-y-1.5">
-              <div className="text-foreground tabular-nums">{salary.primary}</div>
+              <div className="text-ink font-mono tabular-nums">{salary.primary}</div>
               {salary.secondary && (
-                <div className="text-muted text-sm tabular-nums">{salary.secondary}</div>
+                <div className="text-muted font-mono text-sm tabular-nums">{salary.secondary}</div>
               )}
               {equity && (
-                <div className="text-accent-soft-foreground bg-accent-soft inline-block rounded-full px-2.5 py-1 text-sm font-medium">
+                <div className="bg-accent-soft text-accent-soft-foreground inline-block rounded-full px-2.5 py-1 text-sm font-medium">
                   {equity} equity
                 </div>
               )}
@@ -92,7 +88,7 @@ export function RoleCardCarousel({ roles }: { roles: Job[] }) {
                 key={r.id}
                 className={cn(
                   "h-1.5 rounded-full transition-all",
-                  i === index ? "bg-brand w-5" : "bg-border w-1.5",
+                  i === index ? "bg-brand w-5" : "bg-line w-1.5",
                 )}
               />
             ))}
@@ -102,7 +98,7 @@ export function RoleCardCarousel({ roles }: { roles: Job[] }) {
               type="button"
               onClick={() => go(-1)}
               aria-label="Oldingi oʻrin"
-              className="border-border text-muted hover:text-foreground focus-visible:ring-accent flex size-9 items-center justify-center rounded-full border transition focus-visible:ring-2 focus-visible:outline-none"
+              className="border-line text-muted hover:text-ink focus-visible:ring-brand flex size-9 items-center justify-center rounded-full border transition focus-visible:ring-2 focus-visible:outline-none"
             >
               <CaretLeft className="size-4" />
             </button>
@@ -110,7 +106,7 @@ export function RoleCardCarousel({ roles }: { roles: Job[] }) {
               type="button"
               onClick={() => go(1)}
               aria-label="Keyingi oʻrin"
-              className="border-border text-muted hover:text-foreground focus-visible:ring-accent flex size-9 items-center justify-center rounded-full border transition focus-visible:ring-2 focus-visible:outline-none"
+              className="border-line text-muted hover:text-ink focus-visible:ring-brand flex size-9 items-center justify-center rounded-full border transition focus-visible:ring-2 focus-visible:outline-none"
             >
               <CaretRight className="size-4" />
             </button>

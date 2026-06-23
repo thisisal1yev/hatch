@@ -26,7 +26,7 @@ export function SearchBar({ placeholder, submitLabel, className }: SearchBarProp
     <form
       onSubmit={onSubmit}
       className={cn(
-        "border-border bg-surface focus-within:border-accent flex w-full items-center gap-2 rounded-full border p-1.5 pl-4 shadow-sm transition",
+        "border-line bg-surface focus-within:border-brand flex w-full items-center gap-2 rounded-full border p-1.5 pl-4 shadow-sm transition",
         className,
       )}
     >
@@ -36,7 +36,7 @@ export function SearchBar({ placeholder, submitLabel, className }: SearchBarProp
         onChange={(event) => setQuery(event.target.value)}
         placeholder={placeholder}
         aria-label={placeholder}
-        className="text-foreground placeholder:text-muted min-w-0 flex-1 bg-transparent text-sm focus:outline-none"
+        className="text-ink placeholder:text-muted min-w-0 flex-1 bg-transparent text-sm focus:outline-none"
       />
       <button type="submit" className={buttonClasses("primary", "md", "shrink-0")}>
         {submitLabel}
