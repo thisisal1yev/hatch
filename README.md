@@ -1,57 +1,85 @@
-# IT Hunar
+# Hatch
 
-Curated IT hiring marketplace for Uzbekistan. Every job is moderated, profiles can be
-verified, and salaries are shown transparently in both **UZS and USD**. Built as an MVP;
-`Hunar` ("craft/skill" in Uzbek) is the working codename.
+Маркетплейс **стартапов и талантов** для Узбекистана (аналог Wellfound). Английский
+вордмарк, узбекский UI — чтобы продукт можно было масштабировать глобально. Ключевое
+отличие: открытая прозрачность **зарплаты + equity** (доли в стартапе).
 
-> Product specs live in the repository root: `TZ.md` (master), `TZ-LANDING.md`,
-> `TECH-STACK.md`, `PROMPT.md`, `ABOUT.md`. `CLAUDE.md` is the agent-facing guide.
+Продукт позиционируется вокруг **стартап-экосистемы**, а не «IT-вакансий» — вся
+пользовательская копирайтинг-часть выдержана в стартап-рамке.
 
-## Stack
+🌐 Продакшен: **https://it-hatch.vercel.app**
 
-Next.js 16 (App Router, RSC) · React 19 · TypeScript · Tailwind CSS v4 · Supabase
-(`@supabase/ssr`) · Zod · Motion · Phosphor icons. Package manager: **bun**.
+## Стек
 
-## Architecture
+Next.js 16 (App Router, RSC) · React 19 · TypeScript (strict) · Tailwind CSS v4 ·
+Supabase (`@supabase/ssr`) · Zod · Motion · Phosphor Icons · Vitest. Пакетный
+менеджер — **Bun**.
 
-Frontend follows **Feature-Sliced Design** under `src/` with a thin Next routing layer:
+## Архитектура
+
+Frontend построен по **Feature-Sliced Design** внутри `src/`, тонкий слой роутинга Next:
 
 ```
 src/
-  app/        # Next.js routing only (layouts, pages, sitemap.ts, robots.ts)
-  views/      # page compositions (FSD "pages" layer, renamed)
-  widgets/    # composed blocks (site header, footer)
-  features/   # user actions (job-search)
-  entities/   # domain models + UI (job)
-  shared/     # ui, lib, config, supabase clients
+  app/        # только роутинг Next (layout, page, sitemap.ts, robots.ts, иконки, og)
+  views/      # композиции страниц (напр. views/home собирает лендинг)
+  widgets/    # крупные блоки (site-header, site-footer)
+  features/   # пользовательские действия (job-search, role-spotlight)
+  entities/   # доменные модели + доступ к данным (job, market)
+  shared/     # UI-кит, lib, config, seo, supabase-клиенты
 ```
 
-Import rule: a layer may only import from layers below it
-(`app → views → widgets → features → entities → shared`). Each slice exposes a public API
-via `index.ts`. Alias `@/*` → `src/*`. See `CLAUDE.md` for the full guide.
+Правило импортов — слой может импортировать только из слоёв ниже:
+`views → widgets → features → entities → shared`. Каждый слайс отдаёт публичное API
+через `index.ts`; импортируйте через бочку (barrel), а не по глубоким путям. Алиас
+`@/*` → `src/*`. Полный гайд — в [`CLAUDE.md`](./CLAUDE.md).
 
-## Getting started
+### Слой данных
+
+Живой базы пока нет. Функции `entities/*/api/*` (`getFreshJobs`, `getMarketStats`)
+асинхронны и возвращают типизированные demo-данные — это шов для замены: позже return
+меняется на запрос к Supabase, и ни один вызывающий код не трогается. Demo-метрики
+помечаются честной плашкой `SampleNote` («Namuna maʼlumotlar»).
+
+## Быстрый старт
 
 ```bash
 bun install
-cp .env.example .env   # fill Supabase values
+cp .env.example .env   # заполнить значения Supabase; NEXT_PUBLIC_SITE_URL для локали = localhost
 bun run dev            # http://localhost:3000
 ```
 
-## Scripts
+## Команды
 
-| Command | Purpose |
-|---|---|
-| `bun run dev` | Dev server (Turbopack) |
-| `bun run build` | Production build |
-| `bun run start` | Serve the production build |
-| `bun run lint` / `lint:fix` | ESLint |
+| Команда | Описание |
+| --- | --- |
+| `bun run dev` | dev-сервер (http://localhost:3000) |
+| `bun run build` | прод-сборка (запускает `tsc`, статически пререндерит `/`) |
 | `bun run typecheck` | `tsc --noEmit` |
+| `bun run lint` / `lint:fix` | ESLint |
+| `bun run test` | Vitest (run-режим) |
 | `bun run format` / `format:check` | Prettier |
 
-## Status
+Перед тем как считать задачу готовой:
+`bun run typecheck && bun run lint && bun run test && bun run build`.
 
-Scaffolded skeleton plus the Uzbek landing page (`/`). SEO is wired via the metadata API,
-`app/sitemap.ts`, and `app/robots.ts`. Fresh-jobs data is currently mock and swaps for a
-Supabase query once the DB schema lands. Not built yet: auth, DB schema/RLS, and the
-candidate/employer/admin flows (see `TZ.md` §14 for phases).
+## SEO и метаданные
+
+- Абсолютный origin — единый источник `getSiteUrl()` (`shared/config`); используется в
+  метаданных `layout.tsx`, `robots.ts`, `sitemap.ts` и JSON-LD.
+- Иконки и соц-карточки — file-based metadata в `src/app/`: `icon.svg`, `favicon.ico`,
+  `apple-icon.png`, `opengraph-image.tsx` (1200×630 через `next/og`), `twitter-image.tsx`.
+- Структурированные данные (JSON-LD) — слайс `shared/seo`: `SiteJsonLd`
+  (Organization + WebSite) и `FaqJsonLd` (FAQPage).
+
+## Деплой
+
+Хостинг — **Vercel**, продакшен на https://it-hatch.vercel.app. В переменных окружения
+проекта Vercel задайте `NEXT_PUBLIC_SITE_URL` (Production = прод-URL, Preview = preview-URL),
+чтобы canonical / Open Graph / JSON-LD ссылки были абсолютными. Если переменная не задана,
+приложение по умолчанию использует прод-URL.
+
+## Копирайтинг
+
+UI на узбекском (латиница) с апострофом `ʻ` (U+02BB, как в `soʻm`, `oʻrin`). По-английски —
+только вордмарк «Hatch». Роуты/слаги могут оставаться английскими (`/jobs`, `/for-employers`).

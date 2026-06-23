@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hatch">
+  <defs>
+    <linearGradient id="coral" x1="0" y1="0" x2="0" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F18A52"/>
+      <stop offset="1" stop-color="#C8533A"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#coral)"/>
+  <!-- rising sun: rays, half-disc, horizon -->
+  <g stroke="#F8F4ED" stroke-width="3" stroke-linecap="round">
+    <path d="M32 13 V19"/>
+    <path d="M20 18 L23.5 23"/>
+    <path d="M44 18 L40.5 23"/>
+  </g>
+  <path d="M21 41 A11 11 0 0 1 43 41 Z" fill="#F8F4ED"/>
+  <path d="M12 45 H52" stroke="#F8F4ED" stroke-width="3.2" stroke-linecap="round"/>
+</svg>

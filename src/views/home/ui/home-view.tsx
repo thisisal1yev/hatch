@@ -1,7 +1,9 @@
 import { SiteHeader } from "@/widgets/site-header";
 import { SiteFooter } from "@/widgets/site-footer";
+import { SiteJsonLd, FaqJsonLd } from "@/shared/seo";
 import { getFreshJobs } from "@/entities/job";
 import { getMarketStats } from "@/entities/market";
+import { faqItems } from "../model/faq";
 import { Hero } from "./sections/hero";
 import { OpenComp } from "./sections/open-comp";
 import { WhyHatch } from "./sections/why-hatch";
@@ -17,6 +19,8 @@ export async function HomeView() {
 
   return (
     <>
+      <SiteJsonLd />
+      <FaqJsonLd items={faqItems} />
       <SiteHeader />
       <main>
         <Hero stats={market.stats} spotlight={jobs.slice(0, 4)} />

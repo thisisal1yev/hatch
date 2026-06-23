@@ -26,6 +26,13 @@ Single test: `bunx vitest run src/entities/market/lib/demo-data.test.ts`, or fil
 
 Before claiming work done, run `bun run typecheck && bun run lint && bun run test && bun run build`.
 
+## Deployment
+
+Hosted on **Vercel**, production at **https://it-hatch.vercel.app**. Set
+`NEXT_PUBLIC_SITE_URL` in the Vercel project env (Production = the prod URL, Preview = the
+preview URL) so canonical / Open Graph / JSON-LD URLs are absolute and correct. If unset,
+`getSiteUrl()` falls back to the production URL; local dev overrides it via `.env`.
+
 ## Architecture
 
 Next.js 16 App Router (RSC), React 19, Tailwind v4, `motion` (import from `motion/react`),
@@ -73,6 +80,24 @@ Design tokens are CSS variables in `app/globals.css`; `@theme inline` maps them 
 utilities (`bg-brand`, `text-muted`, etc.). Semantic tokens flip under `prefers-color-scheme: dark`.
 The hero uses a fixed dark band via custom `@utility bg-band` / `bg-grain`. Add new colors as a
 `--token` plus a `--color-token` mapping, not as hard-coded hex in components.
+
+### SEO, metadata & icons
+
+`getSiteUrl()` (in `shared/config`) is the single source of the absolute origin — use it in
+`layout.tsx` metadata, `robots.ts`, `sitemap.ts`, and JSON-LD; never re-derive the URL from
+`process.env`. Icons and social cards use **Next file-based metadata** in `src/app/`:
+`icon.svg` (gradient mark, modern browsers), `favicon.ico` (raster fallback), `apple-icon.png`,
+and `opengraph-image.tsx` (1200×630 via `next/og`); `twitter-image.tsx` re-exports the OG image.
+The OG route loads brand fonts from a CDN with a `try/catch` fallback so it never fails the build.
+Satori (`next/og`) can't read the OKLCH CSS vars, so the OG component hardcodes sRGB hex mirroring
+the Daybreak tokens — keep them in sync if the tokens change.
+
+Structured data lives in the `shared/seo` slice: `SiteJsonLd` (Organization + WebSite) and a
+generic `FaqJsonLd` that takes Q/A pairs (the slice stays domain-agnostic; the view owns the
+content — home FAQ data is in `views/home/model/faq.ts`, shared by the UI section and the JSON-LD).
+JSON-LD is server-rendered via `dangerouslySetInnerHTML` with `<` escaped — only ever feed it
+static, developer-authored content. `sitemap.ts` must list **only routes that actually exist**;
+add entries as routes ship (a sitemap of 404s erodes crawl trust).
 
 ### Motion & the RSC boundary
 
