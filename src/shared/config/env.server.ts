@@ -2,7 +2,7 @@ import "server-only";
 import { z } from "zod";
 
 const serverEnvSchema = z.object({
-  /** Full-access key. Server-only — never exposed to the browser. */
+  /** Full-access key. Server-only, never exposed to the browser. */
   SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
   /** Optional: only when imgbb is used for public images instead of a public bucket. */
   IMGBB_API_KEY: z.string().min(1).optional(),

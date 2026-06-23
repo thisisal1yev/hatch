@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
+/* ── Design tokens (Trust-precise: light base, one deep-teal accent) ──
+   Semantic CSS variables flip per color scheme; utilities stay the same. */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0b0d0f;
+  --muted: #5b616e;
+  --surface: #ffffff;
+  --surface-2: #f6f7f9;
+  --border: #e6e8ec;
+  --brand: #0f766e;
+  --brand-strong: #0b5f57;
+  --brand-foreground: #ffffff;
+  --accent: #0f766e;
+  --accent-soft: #e7f4f1;
+  --accent-soft-foreground: #0b5f57;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0c0e;
+    --foreground: #eaecee;
+    --muted: #9aa1ac;
+    --surface: #111417;
+    --surface-2: #0e1113;
+    --border: #23272c;
+    --brand: #0f766e;
+    --brand-strong: #0b5f57;
+    --brand-foreground: #ffffff;
+    --accent: #5eead4;
+    --accent-soft: rgba(45, 212, 191, 0.12);
+    --accent-soft-foreground: #99f6e4;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-soft-foreground: var(--accent-soft-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent-soft-foreground);
 }
