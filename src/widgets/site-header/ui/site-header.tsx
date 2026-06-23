@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ButtonLink, Container } from "@/shared/ui";
-import { siteConfig } from "@/shared/config";
+import { ButtonLink, Container, Wordmark } from "@/shared/ui";
 import { cn } from "@/shared/lib";
 
 export function SiteHeader() {
@@ -24,8 +23,8 @@ export function SiteHeader() {
       )}
     >
       <Container className="flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="text-ink font-display text-lg font-bold tracking-tight">
-          {siteConfig.name}
+        <Link href="/" className="text-ink hover:text-ink/80 transition">
+          <Wordmark className="text-lg" />
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">

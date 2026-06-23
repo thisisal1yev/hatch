@@ -23,7 +23,7 @@ export async function HomeView() {
       <FaqJsonLd items={faqItems} />
       <SiteHeader />
       <main>
-        <Hero stats={market.stats} spotlight={jobs.slice(0, 4)} />
+        <Hero stats={market.stats} />
         <OpenComp data={market} />
         <WhyHatch />
         <HowItWorks />

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Container } from "@/shared/ui";
+import { Container, Wordmark } from "@/shared/ui";
 import { siteConfig } from "@/shared/config";
 
 const columns = [
@@ -28,9 +28,7 @@ export function SiteFooter() {
     <footer className="border-line bg-surface-2 border-t">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="max-w-xs lg:col-span-2">
-          <div className="text-ink font-display text-lg font-bold tracking-tight">
-            {siteConfig.name}
-          </div>
+          <Wordmark className="text-ink text-lg" />
           <p className="text-muted mt-2 text-sm leading-relaxed">
             Oʻzbekiston startup ekotizimi uchun isteʼdod platformasi.
           </p>

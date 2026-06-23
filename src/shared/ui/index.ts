@@ -8,3 +8,4 @@ export { Badge } from "./badge";
 export { Avatar } from "./avatar";
 export { CompBar } from "./comp-bar";
 export { DaybreakCanvas } from "./daybreak-canvas";
+export { Wordmark } from "./wordmark";

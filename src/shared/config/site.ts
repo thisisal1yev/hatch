@@ -9,7 +9,7 @@ export const siteConfig = {
   /** Interface locales. The candidate's English CV is a separate entity. */
   locales: ["uz", "ru"] as const,
   defaultLocale: "uz",
-  contactTelegram: "https://t.me/hatch", // provisional handle — confirm/secure later
+  contactTelegram: "https://t.me/thisisaliyev",
 } as const;
 
 export type Locale = (typeof siteConfig.locales)[number];

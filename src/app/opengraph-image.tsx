@@ -45,72 +45,78 @@ export default async function Image() {
   ].filter((f): f is NonNullable<typeof f> => Boolean(f));
 
   return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          padding: 84,
-          color: CREAM,
-          fontFamily: fonts.length ? "Body" : undefined,
-          // Soft sunrise bleed from the corners (mirrors the hero's bg-daybreak):
-          // glow centers sit off-canvas so only a gradient edge enters the frame —
-          // no hard circular disc. Alpha is baked into the colors.
-          background: `radial-gradient(70% 85% at 6% 114%, rgba(232,116,63,0.42), transparent 60%), radial-gradient(52% 62% at 97% -14%, rgba(63,158,107,0.16), transparent 56%), linear-gradient(165deg, ${INK}, ${INK_2})`,
-          position: "relative",
-        }}
-      >
-        {/* top row: mark + eyebrow pill */}
-        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
-          <img src={MARK_SRC} width={92} height={92} alt="" />
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              borderRadius: 9999,
-              border: `1px solid ${CORAL}`,
-              color: CORAL,
-              padding: "8px 18px",
-              fontSize: 22,
-              letterSpacing: 1,
-              textTransform: "uppercase",
-            }}
-          >
-            Startup × isteʼdod
-          </div>
-        </div>
-
-        {/* wordmark + tagline */}
-        <div style={{ display: "flex", flexDirection: "column", maxWidth: 900 }}>
-          <div
-            style={{
-              fontFamily: fonts.length ? "Display" : undefined,
-              fontSize: 116,
-              fontWeight: 800,
-              lineHeight: 1,
-              letterSpacing: -1,
-            }}
-          >
-            {siteConfig.name}
-          </div>
-          <div style={{ marginTop: 22, fontSize: 33, lineHeight: 1.3, color: MUTED }}>
-            {siteConfig.description}
-          </div>
-        </div>
-
-        {/* footer: open comp + domain */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 26 }}>
-            <div style={{ width: 14, height: 14, borderRadius: 9999, background: GREEN, display: "flex" }} />
-            <span>Maosh va equity — ochiq</span>
-          </div>
-          <div style={{ fontSize: 26, color: CORAL }}>hatch.uz</div>
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        padding: 84,
+        color: CREAM,
+        fontFamily: fonts.length ? "Body" : undefined,
+        // Soft sunrise bleed from the corners (mirrors the hero's bg-daybreak):
+        // glow centers sit off-canvas so only a gradient edge enters the frame —
+        // no hard circular disc. Alpha is baked into the colors.
+        background: `radial-gradient(70% 85% at 6% 114%, rgba(232,116,63,0.42), transparent 60%), radial-gradient(52% 62% at 97% -14%, rgba(63,158,107,0.16), transparent 56%), linear-gradient(165deg, ${INK}, ${INK_2})`,
+        position: "relative",
+      }}
+    >
+      {/* top row: mark + eyebrow pill */}
+      <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+        <img src={MARK_SRC} width={92} height={92} alt="" />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderRadius: 9999,
+            border: `1px solid ${CORAL}`,
+            color: CORAL,
+            padding: "8px 18px",
+            fontSize: 22,
+            letterSpacing: 1,
+            textTransform: "uppercase",
+          }}
+        >
+          Startup × isteʼdod
         </div>
       </div>
-    ),
+
+      {/* wordmark + tagline */}
+      <div style={{ display: "flex", flexDirection: "column", maxWidth: 900 }}>
+        <div
+          style={{
+            fontFamily: fonts.length ? "Display" : undefined,
+            fontSize: 116,
+            fontWeight: 800,
+            lineHeight: 1,
+            letterSpacing: -1,
+          }}
+        >
+          {siteConfig.name}
+        </div>
+        <div style={{ marginTop: 22, fontSize: 33, lineHeight: 1.3, color: MUTED }}>
+          {siteConfig.description}
+        </div>
+      </div>
+
+      {/* footer: open comp + domain */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 26 }}>
+          <div
+            style={{
+              width: 14,
+              height: 14,
+              borderRadius: 9999,
+              background: GREEN,
+              display: "flex",
+            }}
+          />
+          <span>Maosh va equity — ochiq</span>
+        </div>
+        <div style={{ fontSize: 26, color: CORAL }}>hatch.uz</div>
+      </div>
+    </div>,
     { ...size, fonts: fonts.length ? fonts : undefined },
   );
 }
