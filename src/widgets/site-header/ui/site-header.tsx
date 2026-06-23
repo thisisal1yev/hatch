@@ -1,23 +1,38 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ButtonLink, Container } from "@/shared/ui";
 import { siteConfig } from "@/shared/config";
+import { cn } from "@/shared/lib";
 
 export function SiteHeader() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="border-border bg-background/80 sticky top-0 z-40 border-b backdrop-blur">
+    <header
+      className={cn(
+        "sticky top-0 z-40 transition-colors duration-300",
+        scrolled ? "border-line bg-bg/80 border-b backdrop-blur" : "border-b border-transparent",
+      )}
+    >
       <Container className="flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="text-foreground text-lg font-semibold tracking-tight">
+        <Link href="/" className="text-ink font-display text-lg font-bold tracking-tight">
           {siteConfig.name}
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
-          <Link href="/jobs" className="text-muted hover:text-foreground text-sm transition">
+          <Link href="/jobs" className="text-muted hover:text-ink text-sm transition">
             Oʻrinlar
           </Link>
-          <Link
-            href="/for-employers"
-            className="text-muted hover:text-foreground text-sm transition"
-          >
+          <Link href="/for-employers" className="text-muted hover:text-ink text-sm transition">
             Startuplar uchun
           </Link>
         </nav>
@@ -25,7 +40,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Link
             href="/login"
-            className="text-muted hover:text-foreground hidden text-sm transition sm:block"
+            className="text-muted hover:text-ink hidden text-sm transition sm:block"
           >
             Kirish
           </Link>
