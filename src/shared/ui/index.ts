@@ -4,3 +4,4 @@ export { Section } from "./section";
 export { Reveal } from "./reveal";
 export { StatCounter } from "./stat-counter";
 export { SampleNote } from "./sample-note";
+export { CompBar } from "./comp-bar";
