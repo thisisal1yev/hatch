@@ -3,13 +3,13 @@
  * Runtime/secret values belong in `shared/config/env` (added with the Supabase wiring).
  */
 export const siteConfig = {
-  name: "IT Hunar",
+  name: "Hatch",
   description:
-    "Oʻzbekiston IT bozori uchun kuratsiyalangan ish platformasi. Tekshirilgan vakansiyalar, soʻm va dollarda shaffof maosh.",
+    "Oʻzbekiston startup ekotizimi uchun isteʼdod platformasi. Tasdiqlangan startuplar, maosh va equity ochiq koʻrsatiladi.",
   /** Interface locales. The candidate's English CV is a separate entity. */
   locales: ["uz", "ru"] as const,
   defaultLocale: "uz",
-  contactTelegram: "https://t.me/hunar",
+  contactTelegram: "https://t.me/hatch", // provisional handle — confirm/secure later
 } as const;
 
 export type Locale = (typeof siteConfig.locales)[number];

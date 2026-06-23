@@ -12,13 +12,13 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-6 md:flex">
           <Link href="/jobs" className="text-muted hover:text-foreground text-sm transition">
-            Vakansiyalar
+            Oʻrinlar
           </Link>
           <Link
             href="/for-employers"
             className="text-muted hover:text-foreground text-sm transition"
           >
-            Ish beruvchilarga
+            Startuplar uchun
           </Link>
         </nav>
 
@@ -29,7 +29,7 @@ export function SiteHeader() {
           >
             Kirish
           </Link>
-          <ButtonLink href="/for-employers">Vakansiya joylash</ButtonLink>
+          <ButtonLink href="/for-employers">Startup sifatida eʼlon ber</ButtonLink>
         </div>
       </Container>
     </header>
