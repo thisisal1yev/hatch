@@ -1,0 +1,89 @@
+import type { Job } from "../model/types";
+
+// mock: sample approved jobs. Replace with a Supabase query
+// (jobs where status = 'approved', latest N) once the DB schema exists.
+const MOCK_JOBS: Job[] = [
+  {
+    id: "1",
+    slug: "senior-frontend-engineer-sarbon-labs",
+    title: "Senior Frontend Engineer",
+    company: { name: "Sarbon Labs", verified: true },
+    grade: "senior",
+    workFormat: "remote",
+    city: "Toshkent",
+    skills: ["React", "TypeScript", "Next.js"],
+    salary: { min: 25_000_000, max: 35_000_000, currency: "UZS" },
+    salaryUsd: { min: 2000, max: 2800 },
+    postedDaysAgo: 1,
+  },
+  {
+    id: "2",
+    slug: "backend-developer-go-qatra",
+    title: "Backend Developer (Go)",
+    company: { name: "Qatra", verified: true },
+    grade: "middle",
+    workFormat: "hybrid",
+    city: "Toshkent",
+    skills: ["Go", "PostgreSQL", "gRPC"],
+    salary: { min: 18_000_000, max: 28_000_000, currency: "UZS" },
+    salaryUsd: { min: 1450, max: 2250 },
+    postedDaysAgo: 2,
+  },
+  {
+    id: "3",
+    slug: "mobile-engineer-flutter-hudud-soft",
+    title: "Mobile Engineer (Flutter)",
+    company: { name: "Hudud Soft", verified: false },
+    grade: "middle",
+    workFormat: "onsite",
+    city: "Samarqand",
+    skills: ["Flutter", "Dart", "Firebase"],
+    salary: { min: 15_000_000, max: 22_000_000, currency: "UZS" },
+    salaryUsd: { min: 1200, max: 1750 },
+    postedDaysAgo: 3,
+  },
+  {
+    id: "4",
+    slug: "devops-engineer-yol-tech",
+    title: "DevOps Engineer",
+    company: { name: "Yoʻl Tech", verified: true },
+    grade: "senior",
+    workFormat: "remote",
+    city: "Masofaviy",
+    skills: ["Kubernetes", "AWS", "Terraform"],
+    salary: { min: 30_000_000, max: 45_000_000, currency: "UZS" },
+    salaryUsd: { min: 2400, max: 3600 },
+    postedDaysAgo: 4,
+  },
+  {
+    id: "5",
+    slug: "product-designer-nasaf-systems",
+    title: "Product Designer",
+    company: { name: "Nasaf Systems", verified: false },
+    grade: "middle",
+    workFormat: "hybrid",
+    city: "Toshkent",
+    skills: ["Figma", "UX", "Design Systems"],
+    salary: { min: 14_000_000, max: 20_000_000, currency: "UZS" },
+    salaryUsd: { min: 1100, max: 1600 },
+    postedDaysAgo: 5,
+  },
+  {
+    id: "6",
+    slug: "data-engineer-bilim-cloud",
+    title: "Data Engineer",
+    company: { name: "Bilim Cloud", verified: true },
+    grade: "senior",
+    workFormat: "remote",
+    city: "Masofaviy",
+    skills: ["Python", "Spark", "SQL"],
+    salary: { min: 22_000_000, max: 32_000_000, currency: "UZS" },
+    salaryUsd: { min: 1750, max: 2550 },
+    postedDaysAgo: 6,
+  },
+];
+
+/** Latest approved jobs for the landing. Currently mock; async to match the future Supabase call. */
+export async function getFreshJobs(limit = 6): Promise<Job[]> {
+  return MOCK_JOBS.slice(0, limit);
+}
