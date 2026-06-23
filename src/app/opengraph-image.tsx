@@ -56,42 +56,16 @@ export default async function Image() {
           padding: 84,
           color: CREAM,
           fontFamily: fonts.length ? "Body" : undefined,
-          background: `linear-gradient(165deg, ${INK}, ${INK_2})`,
+          // Soft sunrise bleed from the corners (mirrors the hero's bg-daybreak):
+          // glow centers sit off-canvas so only a gradient edge enters the frame —
+          // no hard circular disc. Alpha is baked into the colors.
+          background: `radial-gradient(70% 85% at 6% 114%, rgba(232,116,63,0.42), transparent 60%), radial-gradient(52% 62% at 97% -14%, rgba(63,158,107,0.16), transparent 56%), linear-gradient(165deg, ${INK}, ${INK_2})`,
           position: "relative",
         }}
       >
-        {/* sunrise glow from lower-left — the hero's bg-daybreak, flattened */}
-        <div
-          style={{
-            position: "absolute",
-            left: -180,
-            bottom: -260,
-            width: 900,
-            height: 900,
-            borderRadius: 9999,
-            background: `radial-gradient(closest-side, ${CORAL}, transparent)`,
-            opacity: 0.5,
-            display: "flex",
-          }}
-        />
-        {/* cool counter-glow, top-right */}
-        <div
-          style={{
-            position: "absolute",
-            right: -160,
-            top: -240,
-            width: 620,
-            height: 620,
-            borderRadius: 9999,
-            background: `radial-gradient(closest-side, ${GREEN}, transparent)`,
-            opacity: 0.18,
-            display: "flex",
-          }}
-        />
-
         {/* top row: mark + eyebrow pill */}
-        <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
-          <img src={MARK_SRC} width={112} height={112} alt="" />
+        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+          <img src={MARK_SRC} width={92} height={92} alt="" />
           <div
             style={{
               display: "flex",
@@ -99,8 +73,8 @@ export default async function Image() {
               borderRadius: 9999,
               border: `1px solid ${CORAL}`,
               color: CORAL,
-              padding: "10px 22px",
-              fontSize: 28,
+              padding: "8px 18px",
+              fontSize: 22,
               letterSpacing: 1,
               textTransform: "uppercase",
             }}
@@ -110,30 +84,30 @@ export default async function Image() {
         </div>
 
         {/* wordmark + tagline */}
-        <div style={{ display: "flex", flexDirection: "column", maxWidth: 980 }}>
+        <div style={{ display: "flex", flexDirection: "column", maxWidth: 900 }}>
           <div
             style={{
               fontFamily: fonts.length ? "Display" : undefined,
-              fontSize: 150,
+              fontSize: 116,
               fontWeight: 800,
               lineHeight: 1,
-              letterSpacing: -2,
+              letterSpacing: -1,
             }}
           >
             {siteConfig.name}
           </div>
-          <div style={{ marginTop: 28, fontSize: 42, lineHeight: 1.3, color: MUTED }}>
+          <div style={{ marginTop: 22, fontSize: 33, lineHeight: 1.3, color: MUTED }}>
             {siteConfig.description}
           </div>
         </div>
 
         {/* footer: open comp + domain */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 30 }}>
-            <div style={{ width: 16, height: 16, borderRadius: 9999, background: GREEN, display: "flex" }} />
+          <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 26 }}>
+            <div style={{ width: 14, height: 14, borderRadius: 9999, background: GREEN, display: "flex" }} />
             <span>Maosh va equity — ochiq</span>
           </div>
-          <div style={{ fontSize: 30, color: CORAL }}>hatch.uz</div>
+          <div style={{ fontSize: 26, color: CORAL }}>hatch.uz</div>
         </div>
       </div>
     ),
