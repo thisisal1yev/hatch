@@ -1,30 +1,30 @@
-"use client";
+import { SiteHeader } from "@/widgets/site-header";
+import { SiteFooter } from "@/widgets/site-footer";
+import { getFreshJobs } from "@/entities/job";
+import { Hero } from "./sections/hero";
+import { ValueProps } from "./sections/value-props";
+import { HowItWorks } from "./sections/how-it-works";
+import { FreshJobs } from "./sections/fresh-jobs";
+import { EmployerCta } from "./sections/employer-cta";
+import { Faq } from "./sections/faq";
+import { FinalCta } from "./sections/final-cta";
 
-import { motion, useReducedMotion } from "motion/react";
-import { siteConfig } from "@/shared/config";
-
-/** Landing placeholder. Replaced by the full landing per TZ-LANDING.md. */
-export function HomeView() {
-  const reduce = useReducedMotion();
+export async function HomeView() {
+  const jobs = await getFreshJobs(6);
 
   return (
-    <main className="flex flex-1 flex-col items-center justify-center px-6 text-center">
-      <motion.div
-        initial={reduce ? false : { opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className="flex max-w-xl flex-col items-center gap-4"
-      >
-        <span className="text-sm font-medium tracking-widest text-zinc-500 uppercase">
-          MVP · skeleton
-        </span>
-        <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-          {siteConfig.name}
-        </h1>
-        <p className="text-lg text-pretty text-zinc-600 dark:text-zinc-400">
-          {siteConfig.description}
-        </p>
-      </motion.div>
-    </main>
+    <>
+      <SiteHeader />
+      <main>
+        <Hero previewJob={jobs[0]} />
+        <ValueProps />
+        <HowItWorks />
+        <FreshJobs jobs={jobs} />
+        <EmployerCta />
+        <Faq />
+        <FinalCta />
+      </main>
+      <SiteFooter />
+    </>
   );
 }
