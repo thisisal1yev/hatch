@@ -43,16 +43,16 @@ export function HowItWorks() {
   const [active, setActive] = useState<Audience>("candidate");
 
   return (
-    <Section className="bg-surface-2">
+    <Section>
       <Container>
-        <h2 className="text-foreground text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h2 className="text-ink font-display text-3xl font-bold tracking-tight sm:text-4xl">
           Bu qanday ishlaydi
         </h2>
 
         <div
           role="tablist"
           aria-label="Auditoriya"
-          className="border-border bg-background mt-6 inline-flex rounded-full border p-1"
+          className="border-line bg-surface mt-6 inline-flex rounded-full border p-1"
         >
           {tabs.map((tab) => (
             <button
@@ -61,10 +61,10 @@ export function HowItWorks() {
               aria-selected={active === tab.key}
               onClick={() => setActive(tab.key)}
               className={cn(
-                "focus-visible:ring-accent rounded-full px-4 py-2 text-sm font-medium transition focus-visible:ring-2 focus-visible:outline-none",
+                "focus-visible:ring-brand rounded-full px-4 py-2 text-sm font-medium transition focus-visible:ring-2 focus-visible:outline-none",
                 active === tab.key
-                  ? "bg-brand text-brand-foreground"
-                  : "text-muted hover:text-foreground",
+                  ? "bg-brand-strong text-brand-foreground"
+                  : "text-muted hover:text-ink",
               )}
             >
               {tab.label}
@@ -72,14 +72,15 @@ export function HowItWorks() {
           ))}
         </div>
 
-        <ol className="mt-10 grid gap-8 md:grid-cols-3">
+        <ol className="relative mt-12 grid gap-8 md:grid-cols-3 md:gap-6">
+          <div className="bg-line absolute top-5 right-0 left-0 hidden h-px md:block" aria-hidden />
           {steps[active].map((step, index) => (
-            <li key={step.title}>
-              <div className="bg-accent-soft text-accent-soft-foreground flex size-10 items-center justify-center rounded-full font-semibold">
+            <li key={step.title} className="relative">
+              <div className="bg-brand-strong text-brand-foreground ring-bg relative z-10 flex size-10 items-center justify-center rounded-full font-semibold ring-8">
                 {index + 1}
               </div>
-              <h3 className="text-foreground mt-4 text-lg font-semibold">{step.title}</h3>
-              <p className="text-muted mt-2 text-sm leading-relaxed">{step.body}</p>
+              <h3 className="text-ink mt-5 text-lg font-semibold">{step.title}</h3>
+              <p className="text-muted mt-2 max-w-xs text-sm leading-relaxed">{step.body}</p>
             </li>
           ))}
         </ol>

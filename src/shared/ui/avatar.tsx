@@ -4,11 +4,13 @@ import { cn } from "@/shared/lib";
 export function Avatar({
   name,
   src,
+  alt,
   size = 48,
   className,
 }: {
   name: string;
   src?: string;
+  alt?: string;
   size?: number;
   className?: string;
 }) {
@@ -22,7 +24,7 @@ export function Avatar({
       style={{ width: size, height: size }}
     >
       {src ? (
-        <Image src={src} alt={name} fill sizes={`${size}px`} className="object-cover" />
+        <Image src={src} alt={alt ?? name} fill sizes={`${size}px`} className="object-cover" />
       ) : (
         monogram
       )}

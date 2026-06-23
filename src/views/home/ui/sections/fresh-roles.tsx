@@ -2,12 +2,12 @@ import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { ButtonLink, Container, Reveal, Section } from "@/shared/ui";
 import { JobCard, type Job } from "@/entities/job";
 
-export function FreshJobs({ jobs }: { jobs: Job[] }) {
+export function FreshRoles({ jobs }: { jobs: Job[] }) {
   return (
-    <Section>
+    <Section className="bg-surface-2">
       <Container>
         <div className="flex items-end justify-between gap-4">
-          <h2 className="text-foreground text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="text-ink font-display text-3xl font-bold tracking-tight sm:text-4xl">
             Yangi startup oʻrinlari
           </h2>
           <ButtonLink href="/jobs" variant="secondary" className="hidden sm:inline-flex">
