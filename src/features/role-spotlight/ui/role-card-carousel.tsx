@@ -65,7 +65,7 @@ export function RoleCardCarousel({ roles }: { roles: Job[] }) {
               )}
               {equity && (
                 <div className="bg-accent-soft text-accent-soft-foreground inline-block rounded-full px-2.5 py-1 text-sm font-medium">
-                  {equity} equity
+                  {equity} ulush
                 </div>
               )}
             </div>

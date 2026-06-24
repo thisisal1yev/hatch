@@ -78,7 +78,7 @@ export function JobCard({ job, className }: JobCardProps) {
         {salary.secondary && <div className="text-muted font-mono text-xs">{salary.secondary}</div>}
         {equity && (
           <span className="bg-accent-soft text-accent-soft-foreground mt-2 inline-block w-fit rounded-full px-2 py-0.5 text-xs font-medium">
-            {equity} equity
+            {equity} ulush
           </span>
         )}
       </div>

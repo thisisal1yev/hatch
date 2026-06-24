@@ -8,7 +8,7 @@ export function FinalCta() {
           <div className="bg-grain pointer-events-none absolute inset-0 opacity-60" aria-hidden />
           <div className="relative mx-auto flex max-w-2xl flex-col items-center gap-8">
             <h2 className="font-display text-3xl font-bold tracking-tight text-balance sm:text-4xl">
-              Startup karyerangizni shu yerdan boshlang
+              Eng yaxshi startuplar jamoalariga qoʻshiling
             </h2>
             <div className="flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/jobs" size="lg">

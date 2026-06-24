@@ -1,4 +1,4 @@
-import { Badge, CompBar, Container, Reveal, SampleNote, Section } from "@/shared/ui";
+import { Badge, CompBar, Container, Reveal, Section } from "@/shared/ui";
 import { stageLabel } from "@/entities/job";
 import type { MarketData } from "@/entities/market";
 
@@ -12,10 +12,10 @@ export function OpenComp({ data }: { data: MarketData }) {
       <Container className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-16">
         <Reveal className="lg:sticky lg:top-28">
           <h2 className="text-ink font-display text-3xl font-bold tracking-tight text-balance sm:text-4xl">
-            Maosh + equity — bosqich boʻyicha
+            Maosh + ulush — bosqich boʻyicha
           </h2>
           <p className="text-muted mt-4 max-w-md text-pretty">
-            Startup bosqichi qancha erta boʻlsa, equity ulushi shuncha katta. Hammasi ochiq
+            Startup bosqichi qancha erta boʻlsa, ulush shuncha katta. Hammasi ochiq
             koʻrsatiladi — yashirin shartlarsiz.
           </p>
 
@@ -29,8 +29,6 @@ export function OpenComp({ data }: { data: MarketData }) {
               ))}
             </div>
           </div>
-
-          <SampleNote className="text-muted mt-8" />
         </Reveal>
 
         <Reveal delay={0.1}>
@@ -38,7 +36,7 @@ export function OpenComp({ data }: { data: MarketData }) {
             <div className="border-line flex items-baseline justify-between border-b pb-4">
               <span className="text-ink text-sm font-semibold">Oʻrtacha taklif</span>
               <span className="text-muted font-mono text-xs tracking-wide uppercase">
-                soʻm / equity
+                soʻm / ulush
               </span>
             </div>
             <div className="mt-6 flex flex-col gap-6">

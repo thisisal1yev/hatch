@@ -35,7 +35,7 @@ export function CompBar({
         <span className="text-muted flex items-center gap-2 text-sm">
           <span className="text-ink font-mono tabular-nums">{cashLabel}</span>
           <span className="bg-accent-soft text-accent-soft-foreground rounded-full px-2 py-0.5 text-xs font-medium">
-            {equityLabel} equity
+            {equityLabel} ulush
           </span>
         </span>
       </div>

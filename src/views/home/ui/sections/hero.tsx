@@ -1,4 +1,4 @@
-import { ButtonLink, Container, DaybreakCanvas, SampleNote, StatCounter } from "@/shared/ui";
+import { ButtonLink, Container, DaybreakCanvas, StatCounter } from "@/shared/ui";
 import type { EcosystemStats } from "@/entities/market";
 
 function Stat({
@@ -43,7 +43,7 @@ export function Hero({ stats }: { stats: EcosystemStats }) {
         </h1>
 
         <p className="text-on-band-muted mt-6 max-w-xl text-lg text-pretty">
-          Maosh va equity — <span className="text-on-band font-medium">ochiq</span>. Tasdiqlangan
+          Maosh va ulush — <span className="text-on-band font-medium">ochiq</span>. Tasdiqlangan
           startuplar, toʻgʻridan-toʻgʻri asoschilar bilan.
         </p>
 
@@ -66,8 +66,6 @@ export function Hero({ stats }: { stats: EcosystemStats }) {
             suffix="M+"
           />
         </div>
-
-        <SampleNote className="text-on-band-muted mt-4 opacity-80" />
       </Container>
     </section>
   );

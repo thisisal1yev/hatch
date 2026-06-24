@@ -4,7 +4,7 @@ export const termsDoc: LegalDoc = {
   slug: "terms",
   title: "Foydalanish shartlari",
   description:
-    "Hatch platformasidan foydalanish shartlari: hisob ochish, eʼlonlar, maosh va equity koʻrsatish qoidalari hamda javobgarlik.",
+    "Hatch platformasidan foydalanish shartlari: hisob ochish, eʼlonlar, maosh va ulush koʻrsatish qoidalari hamda javobgarlik.",
   updated: LEGAL_UPDATED,
   intro:
     "Hatch platformasidan foydalanish orqali siz ushbu shartlarni qabul qilasiz. Iltimos, foydalanishni boshlashdan oldin ularni diqqat bilan oʻqing.",
@@ -35,9 +35,9 @@ export const termsDoc: LegalDoc = {
       ],
     },
     {
-      heading: "Eʼlonlar, maosh va equity",
+      heading: "Eʼlonlar, maosh va ulush",
       body: [
-        "Startuplar eʼlonlarida koʻrsatilgan maosh va equity maʼlumotlari aniq va halol boʻlishi shart — Hatch shaffoflikka asoslanadi.",
+        "Startuplar eʼlonlarida koʻrsatilgan maosh va ulush maʼlumotlari aniq va halol boʻlishi shart — Hatch shaffoflikka asoslanadi.",
         "Biz qoidalarni buzgan yoki notoʻgʻri maʼlumot bergan eʼlon va hisoblarni oldindan ogohlantirishsiz oʻchirish huquqini saqlab qolamiz.",
       ],
     },

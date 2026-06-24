@@ -11,10 +11,10 @@ export function EmployerCta() {
           />
           <div className="relative max-w-xl">
             <h2 className="font-display text-3xl font-bold tracking-tight text-balance sm:text-4xl">
-              Startupingizga mos isteʼdod
+              Eng kuchlilarni saralab oling
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-white/90">
-              Eʼloningiz moderatsiyadan oʻtadi va faqat mos nomzodlarga koʻrinadi. Maosh va equity
+              Eʼloningiz moderatsiyadan oʻtadi va faqat mos nomzodlarga koʻrinadi. Maosh va ulush
               ochiq — jiddiy nomzodlar keladi.
             </p>
             <ButtonLink

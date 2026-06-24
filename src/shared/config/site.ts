@@ -5,7 +5,7 @@
 export const siteConfig = {
   name: "Hatch",
   description:
-    "Oʻzbekiston startup ekotizimi uchun isteʼdod platformasi. Tasdiqlangan startuplar, maosh va equity ochiq koʻrsatiladi.",
+    "Oʻzbekiston startup ekotizimi uchun isteʼdod platformasi. Tasdiqlangan startuplar, maosh va ulush ochiq koʻrsatiladi.",
   /** Interface locales. The candidate's English CV is a separate entity. */
   locales: ["uz", "ru"] as const,
   defaultLocale: "uz",

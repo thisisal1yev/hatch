@@ -19,7 +19,7 @@ export function SiteJsonLd() {
         url,
         logo: `${url}/apple-icon.png`,
         description: siteConfig.description,
-        slogan: "Maosh va equity — ochiq",
+        slogan: "Maosh va ulush — ochiq",
         areaServed: { "@type": "Country", name: "Uzbekistan" },
         sameAs: [siteConfig.contactTelegram],
       },

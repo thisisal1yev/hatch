@@ -43,7 +43,7 @@ export function SiteHeader() {
           >
             Kirish
           </Link>
-          <ButtonLink href="/for-employers">Startup sifatida eʼlon ber</ButtonLink>
+          <ButtonLink href="/register">Roʻyxatdan oʻtish</ButtonLink>
         </div>
       </Container>
     </header>

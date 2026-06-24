@@ -112,7 +112,7 @@ export default async function Image() {
               display: "flex",
             }}
           />
-          <span>Maosh va equity — ochiq</span>
+          <span>Maosh va ulush — ochiq</span>
         </div>
         <div style={{ fontSize: 26, color: CORAL }}>hatch.uz</div>
       </div>

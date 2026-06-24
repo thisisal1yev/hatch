@@ -1,7 +1,6 @@
 export { Button, ButtonLink, buttonClasses } from "./button";
 export { Container } from "./container";
 export { Section } from "./section";
-export { SampleNote } from "./sample-note";
 export { Reveal } from "./reveal";
 export { StatCounter } from "./stat-counter";
 export { Badge } from "./badge";
@@ -9,3 +8,4 @@ export { Avatar } from "./avatar";
 export { CompBar } from "./comp-bar";
 export { DaybreakCanvas } from "./daybreak-canvas";
 export { Wordmark } from "./wordmark";
+export { TextField, PasswordField, SelectField } from "./form";

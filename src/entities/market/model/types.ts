@@ -27,6 +27,4 @@ export interface MarketData {
   stats: EcosystemStats;
   byStage: StageComp[];
   sectors: Sector[];
-  sampleLabel: string;
-  updatedNote: string;
 }

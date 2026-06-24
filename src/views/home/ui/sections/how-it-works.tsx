@@ -19,7 +19,7 @@ const steps: Record<Audience, { title: string; body: string }[]> = {
     },
     {
       title: "Startup oʻrinlarini qidiring",
-      body: "Bosqich, equity, format va maosh boʻyicha startup oʻrinlarini qidiring.",
+      body: "Bosqich, ulush, format va maosh boʻyicha startup oʻrinlarini qidiring.",
     },
     {
       title: "Ariza topshiring",

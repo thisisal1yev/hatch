@@ -20,8 +20,8 @@ type Item = {
 const items: Item[] = [
   {
     icon: CurrencyDollar,
-    title: "Maosh va equity ochiq",
-    body: "Vilka va equity ulushini darhol koʻrasiz. Yashirin shartlar yoʻq — taklif birinchi qadamdan aniq.",
+    title: "Maosh va ulush ochiq",
+    body: "Vilka va ulushni darhol koʻrasiz. Yashirin shartlar yoʻq — taklif birinchi qadamdan aniq.",
     span: "lg:col-span-2",
     variant: "featured",
   },

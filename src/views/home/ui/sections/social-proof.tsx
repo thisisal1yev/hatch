@@ -16,7 +16,7 @@ type Quote = {
 const quotes: Quote[] = [
   {
     quote:
-      "Hatch orqali ikki haftada ikkita senior muhandis yolladik. Maosh va equity ochiq boʻlgani uchun suhbatlar tez va halol oʻtdi.",
+      "Hatch orqali ikki haftada ikkita senior muhandis yolladik. Maosh va ulush ochiq boʻlgani uchun suhbatlar tez va halol oʻtdi.",
     name: "Dilshod Karimov",
     role: "Sarbon Labs asoschisi",
     photoId: "photo-1507003211169-0a1dd7228f2d",
@@ -24,7 +24,7 @@ const quotes: Quote[] = [
   },
   {
     quote:
-      "Nomzodlar allaqachon equity nima ekanini tushunib kelishadi. Bu ishimizni ancha osonlashtirdi.",
+      "Nomzodlar allaqachon ulush nima ekanini tushunib kelishadi. Bu ishimizni ancha osonlashtirdi.",
     name: "Nigora Yusupova",
     role: "Qatra asoschisi",
     photoId: "photo-1438761681033-6461ffad8d80",

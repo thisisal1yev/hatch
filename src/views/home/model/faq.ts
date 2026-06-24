@@ -7,8 +7,8 @@ export const faqItems: FaqItem[] = [
     a: "Ha, toʻliq bepul. Toʻlovni faqat startuplar amalga oshiradi.",
   },
   {
-    q: "Equity nima va u qanday koʻrsatiladi?",
-    a: "Equity — startupdagi ulush. Har bir oʻrinda taklif etilgan ulush foizi ochiq koʻrsatiladi.",
+    q: "Ulush (equity) nima va u qanday koʻrsatiladi?",
+    a: "Ulush — startup kompaniyasidagi egalik hissasi. Har bir oʻrinda taklif etilgan ulush foizi ochiq koʻrsatiladi.",
   },
   {
     q: "Startuplar qanday tekshiriladi?",

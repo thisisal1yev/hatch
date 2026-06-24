@@ -52,6 +52,4 @@ export const MARKET_DEMO: MarketData = {
     { name: "Logistics", share: 0.16 },
     { name: "Healthtech", share: 0.14 },
   ],
-  sampleLabel: "Namuna maʼlumotlar",
-  updatedNote: "toʻliq baza tez orada",
 };
